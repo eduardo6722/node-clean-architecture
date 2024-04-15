@@ -39,6 +39,7 @@ describe('Update customer unit tests', () => {
       name: input.name,
       address: input.address,
     }).toEqual(output);
+    expect(customerRespository.update).toHaveBeenCalled();
   });
 
   it('should return null if an error occurs', async () => {
