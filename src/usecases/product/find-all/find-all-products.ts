@@ -1,5 +1,5 @@
-import { IProduct } from '../../../domain/product/entity/product.interface';
 import { IProductRepository } from '../../../domain/product/repository/product-repository.interface';
+import { IFindAllProductsOutputDto } from './find-all-products.dto';
 
 export class FindAllProductsUseCase {
   private productRepository: IProductRepository;
@@ -8,10 +8,16 @@ export class FindAllProductsUseCase {
     this.productRepository = productRepository;
   }
 
-  async execute(): Promise<IProduct[] | null> {
+  async execute(): Promise<IFindAllProductsOutputDto | null> {
     try {
       const data = await this.productRepository.findAll();
-      return data;
+      return {
+        products: data.map((product) => ({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+        })),
+      };
     } catch (error) {
       console.error(error);
       return null;

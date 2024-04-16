@@ -42,8 +42,8 @@ describe('Find all products integration tests', () => {
       price: input.price,
     });
     const output = await findAllProductsUseCase.execute();
-    expect(output).toHaveLength(2);
-    expect(output[0].id).toBe('123');
-    expect(output[0].name).toBe(input.name);
+    expect(output.products).toHaveLength(2);
+    expect(output.products[0].id).toBe('123');
+    expect(output.products[0].name).toBe(input.name);
   });
 });

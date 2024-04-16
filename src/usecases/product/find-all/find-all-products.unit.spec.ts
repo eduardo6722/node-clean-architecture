@@ -23,19 +23,21 @@ describe('Find all products unit tests', () => {
       },
     ]);
     const output = await findAllProductsUseCase.execute();
-    expect(output).toEqual([
-      {
-        id: '1',
-        name: 'Product 1',
-        price: 100,
-      },
-    ]);
+    expect(output).toEqual({
+      products: [
+        {
+          id: '1',
+          name: 'Product 1',
+          price: 100,
+        },
+      ],
+    });
   });
 
   it('should return an empty list if no products are found', async () => {
     ProductRepositoryMock.findAll.mockResolvedValueOnce([]);
     const output = await findAllProductsUseCase.execute();
-    expect(output).toEqual([]);
+    expect(output.products).toEqual([]);
   });
 
   it('should return an empty list if an error occurs', async () => {
