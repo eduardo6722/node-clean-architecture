@@ -39,7 +39,8 @@ export class CreateCustomerUseCase {
           city: customer.address._city,
         },
       };
-    } catch {
+    } catch (error) {
+      console.error(error);
       return null;
     }
   }

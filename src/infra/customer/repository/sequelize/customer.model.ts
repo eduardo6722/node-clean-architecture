@@ -1,3 +1,4 @@
+import { BOOLEAN, TEXT } from 'sequelize';
 import { Column, Model, PrimaryKey, Table } from 'sequelize-typescript';
 
 @Table({
@@ -6,24 +7,24 @@ import { Column, Model, PrimaryKey, Table } from 'sequelize-typescript';
 })
 export class CustomerModel extends Model {
   @PrimaryKey
-  @Column
+  @Column({ type: TEXT })
   declare id: string;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, type: TEXT })
   declare name: string;
 
-  @Column({ defaultValue: false })
+  @Column({ defaultValue: false, type: BOOLEAN })
   declare active: boolean;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, type: TEXT })
   declare street: string;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, type: TEXT })
   declare number: string;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, type: TEXT })
   declare zip: string;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, type: TEXT })
   declare city: string;
 }
