@@ -19,7 +19,6 @@ export class FindAllProductsUseCase {
         })),
       };
     } catch (error) {
-      console.error(error);
       return null;
     }
   }

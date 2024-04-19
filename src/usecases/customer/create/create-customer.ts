@@ -40,7 +40,6 @@ export class CreateCustomerUseCase {
         },
       };
     } catch (error) {
-      console.error(error);
       return null;
     }
   }

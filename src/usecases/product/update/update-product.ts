@@ -22,7 +22,6 @@ export class UpdateProductUseCase {
         price: product.price,
       };
     } catch (error) {
-      console.error(error);
       return null;
     }
   }

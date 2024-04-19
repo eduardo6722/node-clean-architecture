@@ -17,7 +17,6 @@ export class FindProductByIdUsecase {
         price: data.price,
       };
     } catch (error) {
-      console.error(error);
       return null;
     }
   }
