@@ -3,11 +3,11 @@ import { Customer } from './customer';
 
 describe('Customer', () => {
   it('should throw an error when is empty', () => {
-    expect(() => new Customer('', 'John')).toThrow('Id is required');
+    expect(() => new Customer('', 'John')).toThrow('customer: id is required');
   });
 
   it('should throw an error when name is empty', () => {
-    expect(() => new Customer('1', '')).toThrow('Name is required');
+    expect(() => new Customer('1', '')).toThrow('customer: name is required');
   });
 
   it('should update the name', () => {
@@ -18,7 +18,7 @@ describe('Customer', () => {
 
   it('should throw an error when changeName receives empty name', () => {
     const customer = new Customer('1', 'John');
-    expect(() => customer.changeName('')).toThrow('Name is required');
+    expect(() => customer.changeName('')).toThrow('customer: name is required');
   });
 
   it('should activate customer', () => {
@@ -41,7 +41,7 @@ describe('Customer', () => {
 
   it('should not change status active when there is no address', () => {
     const customer = new Customer('1', 'John');
-    expect(() => customer.activate()).toThrow('Address is required');
+    expect(() => customer.activate()).toThrow('customer: address is required');
   });
 
   it('should add reward points', () => {
