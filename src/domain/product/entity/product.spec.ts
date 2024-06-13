@@ -2,15 +2,27 @@ import { Product } from './product';
 
 describe('Product', () => {
   it('should throw an error when id is empty', () => {
-    expect(() => new Product('', 'Product 1', 100)).toThrow('Id is required');
+    expect(() => new Product('', 'Product 1', 100)).toThrow(
+      'product: id is required',
+    );
   });
 
   it('should throw an error when name is empty', () => {
-    expect(() => new Product('1', '', 100)).toThrow('Name is required');
+    expect(() => new Product('1', '', 100)).toThrow(
+      'product: name is required',
+    );
   });
 
   it('should throw an error when price is invalid', () => {
-    expect(() => new Product('1', 'Product1', -1)).toThrow('Price is invalid');
+    expect(() => new Product('1', 'Product1', -1)).toThrow(
+      'product: price must be greater than 0',
+    );
+  });
+
+  it('should throw 2 errors', () => {
+    expect(() => new Product('', '', 1)).toThrow(
+      'product: id is required,product: name is required',
+    );
   });
 
   it('should change name', () => {
